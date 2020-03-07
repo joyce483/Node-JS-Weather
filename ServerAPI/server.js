@@ -3,6 +3,7 @@ var app = express();
 var path = require("path");
 var mapbox = require("../mapbox.js");
 var forecast = require("../fc.js");
+var port = process.env.PORT || 8014;
 
 //app.use(express.static(path.join(__dirname,"./public")));
 app.use('/public', express.static(path.resolve(__dirname, 'public')));
@@ -53,6 +54,6 @@ app.get("/*",(req,res)=>{
     res.send("page not found...");
 });
 
-app.listen(8014,()=>{
+app.listen(port,()=>{
     console.log("Express...");
 });
